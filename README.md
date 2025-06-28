@@ -66,4 +66,4 @@ MIT License
 ## Citation
 
 If you use this tool, please cite our paper:
-[Paper citation will be added upon publication]
+**To Automate or not to Automate the Transcription of Ancient Earthquakes: Toward a Global Knowledge Graph about Ancient Earthquakes**, 2025.  
