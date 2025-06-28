@@ -1,0 +1,1791 @@
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix cidoc-crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crminf: <http://www.cidoc-crm.org/extensions/crminf/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix earthquake_model: <https://crm-eq.ics.forth.gr/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cc:license a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+crminf:J13_adopted_interpretation a owl:ObjectProperty ;
+    rdfs:domain crminf:I7_Belief_Adoption ;
+    rdfs:range crminf:I12_Adopted_Belief ;
+    owl:inverseOf crminf:J13i_was_concluded_by .
+
+crminf:J14_adopted_interpretation_of a owl:ObjectProperty ;
+    rdfs:domain crminf:I12_Adopted_Belief ;
+    rdfs:range cidoc-crm:E73_Information_Object ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    owl:inverseOf crminf:J14i_has_adopted_interpretation .
+
+crminf:J1_used_as_premise a owl:ObjectProperty ;
+    rdfs:domain crmsci:S5_Inference_Making ;
+    rdfs:range crminf:I2_Belief ;
+    owl:inverseOf crminf:J1i_was_premise_of .
+
+crminf:J20_is_about_the_provenance_of a owl:ObjectProperty ;
+    rdfs:domain crminf:I10_Provenance_Statement ;
+    rdfs:range cidoc-crm:E70_Thing ;
+    owl:inverseOf crminf:J20i_has_provenance_claim .
+
+crminf:J2_concluded_that a owl:ObjectProperty ;
+    rdfs:domain crminf:I1_Argumentation ;
+    rdfs:range crminf:I2_Belief ;
+    owl:inverseOf crminf:J2i_was_concluded_by .
+
+crminf:J4_that a owl:ObjectProperty ;
+    rdfs:domain crminf:I2_Belief ;
+    rdfs:range crminf:I4_Proposition_Set ;
+    owl:inverseOf crminf:J4i_is_subject_of .
+
+crminf:J5_holds_to_be a owl:DatatypeProperty ;
+    rdfs:domain crminf:I2_Belief ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+crminf:J7_is_based_on_evidence_from a owl:ObjectProperty ;
+    rdfs:domain crminf:I7_Belief_Adoption ;
+    rdfs:range cidoc-crm:E73_Information_Object ;
+    owl:inverseOf crminf:J7i_is_evidence_for .
+
+earthquake_model: a owl:Ontology ;
+    cc:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:license dcterms: ;
+    owl:imports cidoc-crm:,
+        crmsci: .
+
+earthquake_model:PEQ1_has_error_margin a owl:DatatypeProperty ;
+    rdfs:domain cidoc-crm:E54_Dimension ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+earthquake_model:PEQ2_checks_equality_of a owl:ObjectProperty ;
+    rdfs:domain earthquake_model:EQ2_Comparison_Evaluation ;
+    rdfs:range cidoc-crm:E1_CRM_Entity ;
+    owl:inverseOf earthquake_model:PEQ2i__of_whom_equality_is_checked_in .
+
+earthquake_model:PEQ3_checks_equality_to a owl:ObjectProperty ;
+    rdfs:domain earthquake_model:EQ2_Comparison_Evaluation ;
+    rdfs:range cidoc-crm:E1_CRM_Entity ;
+    owl:inverseOf earthquake_model:PEQ3i_to_whom_equality_is_checked_in .
+
+earthquake_model:PEQ4_has_comparison_value a owl:DatatypeProperty ;
+    rdfs:domain earthquake_model:EQ2_Comparison_Evaluation ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+earthquake_model:PEQ5_has_documented_possible_timespan a owl:ObjectProperty ;
+    rdfs:domain earthquake_model:EQ1_Earthquake ;
+    rdfs:range cidoc-crm:E52_Time-Span ;
+    rdfs:subPropertyOf cidoc-crm:P4_has_time-span ;
+    owl:inverseOf earthquake_model:PEQ5i_is_documented_possible_timespan_of .
+
+earthquake_model:PEQ6_has_documented_possible_place a owl:ObjectProperty ;
+    rdfs:domain earthquake_model:EQ1_Earthquake ;
+    rdfs:range cidoc-crm:E53_Place ;
+    rdfs:subPropertyOf cidoc-crm:P7_took_place_at ;
+    owl:inverseOf earthquake_model:PEQ6i_is_documented_possible_place_of .
+
+earthquake_model:PEQ7_has_documented_possible_epicenter_place a owl:ObjectProperty ;
+    rdfs:domain earthquake_model:EQ1_Earthquake ;
+    rdfs:range cidoc-crm:E53_Place ;
+    rdfs:subPropertyOf cidoc-crm:P7_took_place_at ;
+    owl:inverseOf earthquake_model:PEQ7i_is__documented_possible_epicenter_place_of .
+
+earthquake_model:PEQ8_has_documented_possible_dimension a owl:ObjectProperty ;
+    rdfs:domain earthquake_model:EQ1_Earthquake ;
+    rdfs:range cidoc-crm:E54_Dimension ;
+    rdfs:subPropertyOf crmsci:O12_has_dimension ;
+    owl:inverseOf earthquake_model:PEQ8i_is_documented_possible_dimension__of .
+
+earthquake_model:PEQ9_has_documented_uncertainty_factor a owl:DatatypeProperty ;
+    rdfs:domain cidoc-crm:E54_Dimension ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+earthquake_model:e1180 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #1180 (1911-04-24)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unknown strong earthquake shock that impacted Rethymnon and Heraklion. Vlastos (unpublished, p. 399) reported that,
+Την 12 Απριλίου 1911 περί την αυγήν ώρα 5 π.μ. σελήνη 25 ημερών, ημέρα Τρίτη, ο δε καιρός ακατάστατος και τρικυμιώδης. Συνέβη ισχυρός σεισμός διαρκείας 2 δευτερολέπτων εν Ρεθύμνη, ενώ η «Νέα Εφημερίς» Ηρακλείου (της 17 Απριλίου ε.ε. αριθ. 2) περί του σεισμού τούτου γράφει «Μίαν πολύ ελαφράν δόνησιν σεισμού έχομεν την παρελθούσαν Τρίτην (12 Απριλίου) περί τα εξημερώματα. Η Αγία Παρασκευή (ναός του Αγ. Ματθαίου Σιναιτών) μετά τον τελευταίον σεισμόν εκηρύχθη ετοιμόρροπος. Καλόν είναι να λάβουν τα μέτρα των οι κ.κ. Επίτροποι».
+Earthquake parameters: I presumed shallow focus close to Rethymnon."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1911-04-24_03:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e1180_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e1180_focal_depth,
+        earthquake_model:e1180_intensity_heraklion,
+        earthquake_model:e1180_intensity_rethymnon,
+        earthquake_model:e1180_magnitude,
+        earthquake_model:e1180_reliability .
+
+earthquake_model:e165 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #165 (1907-08-09)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This is an earthquake unknown in seismological literature. Vlastos (unpublished, p. 374) recalled:
+Καὶ τὴν 28 Ἰουλίου 1907 ἡμέρα Σάββατον ὥραν 5 καὶ 5’. μ.μ. Σεισμὸς μικρὸς με ἐλαφρᾶς δονήσεις τὸν ἠσθάνθην ἐργαζόμενος ἐν τῷ γραφείῳ μου ἐν Ῥεθύμνῳ.
+that is:
+And on 28 July 1907, Saturday hour 5 and 5 min. pm. Earthquake small with slight shocks, I felt it when I was working in my office in Rethymnon.
+Earthquake parameters: I distilled the same source as that of 30 July 1907."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1907-08-09_13:05_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e165_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e165_focal_depth,
+        earthquake_model:e165_intensity,
+        earthquake_model:e165_magnitude,
+        earthquake_model:e165_reliability .
+
+earthquake_model:e166 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #166 (1907-10-31)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This is an earthquake unknown in seismological literature. Vlastos (unpublished, p. 374) recounted,
+Ὀκτωβρίου 19 τοῦ αὐτοῦ ἔτους 1907 ὥρα 9 μ.μ. ἡμέραν Παρασκευήν, νύκτα ἠσθάνθημεν μίαν μικράν σεισμικὴν δόνησιν καὶ μετ’ αὐτὴν ἄλλην δυνατότερην ἐν Ῥεθύμνῳ.
+that is
+October 19 of the same year 1907 hour 9 pm, Friday evening, we felt in Rethymnon a small earthquake shock and then another one stronger.
+Earthquake parameters: I distilled the same source as that of 30 July 1907."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1907-10-31_19:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e166_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e166_focal_depth,
+        earthquake_model:e166_intensity,
+        earthquake_model:e166_magnitude,
+        earthquake_model:e166_reliability .
+
+earthquake_model:e167 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #167 (1907-12-06)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This is an earthquake unknown in the scientific literature. Vlastos (unpublished, p. 375) reported,
+Και τη 24 Νοεμβρίου 1907 ώρα 8 και ¼ της νυκτός ησθάνθημεν εν Ρεθύμνη σεισμικάς τινάς δονήσεις ηρεμους.
+that is
+And on 24 November 1907, hour 8 and ¼ of the night, we felt in Rethymnon some calm shocks.
+Earthquake parameters: I applied a more distant source than that of 30 July 1907, since a 'calm' shock is indicative of a long-period effect."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1907-12-06_00:15_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e167_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e167_focal_depth,
+        earthquake_model:e167_intensity,
+        earthquake_model:e167_magnitude,
+        earthquake_model:e167_reliability .
+
+earthquake_model:e168 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #168 (1908-05-17)"^^xsd:string ;
+    cidoc-crm:P3_has_note """Vlastos (unpublished, p. 376) reported that
+Κατά το έτος 1908 Μαΐου 4 ώρα 2 και λεπτά 5’ μ.μ. ησθάνθημεν εν Ρεθύμνη δύο σεισμικάς δονήσεις ισχυράς, διαρκείας 3-5 δευτερολέπτων. Ο προσημειωθείς σεισμός φαίνεται ότι προήρχετο από τον συμβάντα εν Θήβαις της Αττικής γενόμενον σεισμόν αυτοσυστήματι δηλ. Μαΐου 4 και ώρα 9 και 48’ π..μ. «ελαφράς και μικρής διαρκείας σεισμικάς δονήσεις εν Θήβαις» (κατά την «Πατρίδα» εφημερίς Αθηνών της 5 Μαΐου ε.ε.).
+that is
+On the year 1908, May 4, hour 2:05 pm, we felt in Rethymnon two sparse, strong earthquake shocks, of 3-5 seconds in duration. It seems that the shock mentioned before came from the earthquake which happened in Thives, Attika, at the same time, that is May 4, hour 9:48 am, 'slight and of small duration earthquake shocks in Thives' (according to «Patrida», newspaper of Athens, 5 May of this year).
+The origin time of the Thives earthquake does not coincide with that of the Rethymnon earthquake reported by Vlastos (unpublished, p. 376), refuting Vlastos’ notion that they were one and the same. According to the newspaper «Κήρυξ» (“Kerex” 4-5-1908) of Chania: A strong earthquake shock of long duration was felt today. Fortunately, no fatalities were reported. Sieberg (1932b) maintained that the earthquake’s presence was definitive in Heraklion, and, though slight, even reached as far as Zakynthos, Volos and South Italy, particularly in the region of Calabria. Earthquake parameters: Location adopted from Papazachos and Papazachou (2003). Additional reading: Platakis (1950), Cominakis and Papazachos (1982)."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1908-05-17_12:30:42_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e168_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e168_focal_depth,
+        earthquake_model:e168_intensity,
+        earthquake_model:e168_magnitude,
+        earthquake_model:e168_reliability .
+
+earthquake_model:e169 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #169 (1909-07-05)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This is an earthquake otherwise unrecorded in seismology. Vlastos (unpublished, p. 378) recalled,
+Την 23 Ιουνίου 1909 ώρα 9 μ.μ. νυκτός. Ησθάνθημεν εν Ρεθύμνη ελαφράν δόνησιν σεισμού.
+that is
+On 23 June 1909, hour 9 pm, evening. In Rethymnon we felt a slight earthquake shock.
+Earthquake parameters: I have distilled the same source as that of 30 July 1907."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1909-07-05_01:35.6_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e169_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e169_focal_depth,
+        earthquake_model:e169_intensity,
+        earthquake_model:e169_magnitude,
+        earthquake_model:e169_reliability .
+
+earthquake_model:e170 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #170 (1909-07-15)"^^xsd:string ;
+    cidoc-crm:P3_has_note """Vlastos (unpublished, p. 378) reported that
+Και την 3 Ιουλίου 1909 ώρα 9 παρά ¼ (8 ¾) μ.μ. της νυκτός. Ησθάνθημεν μίαν ισχυράν σεισμικήν δόνησιν εν Ρεθύμνη.
+that is
+And on 3 July 1909, around 9 pm (8¾ pm) we felt a strong earthquake shock in Rethymnon.
+Earthquake parameters: I averred that the lethal shallow shock that brought such chaos to Chavari and other villages in the Elis province, northwestern Peloponnese, was the shock described by Vlastos (unpublished, p. 378), and will be examined elsewhere."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1909-07-15_00:35_GMT+00> ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e170_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e170_focal_depth,
+        earthquake_model:e170_intensity_Chavari,
+        earthquake_model:e170_intensity_Rethymnon,
+        earthquake_model:e170_magnitude,
+        earthquake_model:e170_reliability .
+
+earthquake_model:e171 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #171 (1909-12-22)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This is an earthquake unknown in seismological literature. Vlastos (unpublished, p. 374) recounted,
+Ὀκτωβρίου 19 τοῦ αὐτοῦ ἔτους 1907 ὥρα 9 μ.μ. ἡμέραν Παρασκευήν, νύκτα ἠσθάνθημεν μίαν μικράν σεισμικὴν δόνησιν καὶ μετ’ αὐτὴν ἄλλην δυνατότερην ἐν Ῥεθύμνῳ.
+that is
+October 19 of the same year 1907 hour 9 pm, Friday evening, we felt in Rethymnon a small earthquake shock and then another one stronger.
+Earthquake parameters: I distilled the same source as that of 30 July 1907."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1909-12-22_18:20_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e171_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e171_focal_depth,
+        earthquake_model:e171_intensity,
+        earthquake_model:e171_magnitude,
+        earthquake_model:e171_reliability .
+
+earthquake_model:e172 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #172 (1910-02-18)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was a daunting earthquake that induced devastation in the area of Chania. Vlastos (unpublished, p. 385), being in Rethymnon, recollected it in detail:
+Την 5 Φεβρουαρίου πρωία ώρα 6 ½ ημέρα Παρασκευή, σελήνη 9 ημερών, ...
+EARTHQUAKE IN CRETE.
+Minaret Crashes Through Dome of Mosque—Six Buried In Fall of House.
+CANEA, Crete, Feb. 18.—A severe earthquake was felt throughout Crete at 6:38 o'clock this morning. It was accompanied with violent subterranean explosions. In this city a number of buildings were damaged and a minaret of the mosque crashed through the dome. In the village of Varipetro a house collapsed, burying six persons.
+Strong Aftershock: 1910 03 20.
+Additional reading: Platakis (1950), Shebalin et al. (1974)."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    crmsci:O13_triggered earthquake_model:e172_lightning ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1910-02-18_05:09:18_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e172_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e172_focal_depth,
+        earthquake_model:e172_intensity_Chania,
+        earthquake_model:e172_intensity_Rethymnon,
+        earthquake_model:e172_magnitude,
+        earthquake_model:e172_reliability .
+
+earthquake_model:e173 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #173 (1910-02-21)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unregistered sequence of earthquake shocks that occurred in the area of Rethymnon. Vlastos (unpublished, p. 388) reported that,
+Τη 9 προς την 10 Φεβρουαρίου 1910 ώρα 12 ακριβώς το μεσονύκτιον, ησθάνθημεν εν Ρεθύμνη σεισμικάς τινας δονήσεις ελαφράς. Εξηκολούθησαν δε συχνά κατά περιόδους επί τινας ημέρας ολίγον αισθητοί.
+That is
+On 9 to 10 February 1910, hour 12 at exactly midnight, we felt in Rethymnon some slight earthquake shocks. They continued frequently from time to time for some days but were little felt.
+Earthquake parameters: This sequence of earthquakes arguably was aftershock activity from the big mainshock of 18 February 1910."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1910-02-21_22:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e173_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e173_focal_depth,
+        earthquake_model:e173_intensity,
+        earthquake_model:e173_magnitude,
+        earthquake_model:e173_reliability .
+
+earthquake_model:e174 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #174 (1910-06-02)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This is an earthquake unknown in the scientific literature. Vlastos (unpublished, p. 375) reported that,
+Και τη 24 Νοεμβρίου 1907 ώρα 8 και ¼ της νυκτός ησθάνθημεν εν Ρεθύμνη σεισμικάς τινάς δονήσεις ηρεμους.
+That is
+And on 24 November 1907, hour 8 and ¼ of the night, we felt in Rethymnon some calm shocks.
+Earthquake parameters: I applied a more distant source than that of 30 July 1907, since a 'calm' shock is indicative of a long-period effect."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1910-06-02_04:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e174_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e174_focal_depth,
+        earthquake_model:e174_intensity,
+        earthquake_model:e174_magnitude,
+        earthquake_model:e174_reliability .
+
+earthquake_model:e175 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #175 (1910-06-29)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was another unfamiliar sequence of earthquake shocks affecting the area of Rethymnon. Vlastos (unpublished, p. 396) reported,
+Τη 16 προς την 17 Ιουνίου 1910 ώρα 3 μετά το μεσονύκτιον συνέβη ελαφρά δόνησις σεισμού αισθητή εν Ρεθύμνη. Τη 17 Ιουνίου 1910 ώρα 5 και ½ της πρωίας, Σελήνη 24 ημερών, σεισμός με κλονισμόν αισθητόν διότι αφύπνισε τους κοιμωμένους εν Κρήτη.
+That is
+On 16 to 17 June 1910, hour 3 after midnight a slight earthquake shock occurred in Rethymnon. On 17 June 1910, hour 5½ in the morning, with Moon of 24 days, an earthquake shock was felt that awoke sleeping people in Crete.
+Earthquake parameters: Again I procured that these were strong aftershocks from the mainshock of 18 February 1910."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1910-06-29_05:30_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e175_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e175_focal_depth,
+        earthquake_model:e175_intensity,
+        earthquake_model:e175_magnitude,
+        earthquake_model:e175_reliability .
+
+earthquake_model:e176 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #176 (1910-08-21)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was a strong earthquake that occurred in SE Crete. No information is available for the possible impact of the earthquake.
+Earthquake parameters: Adopted from Shebalin et al. (1974).
+Additional reading: Comninakis and Papazachos (1982), Papazachos and Papazachou (2003)."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1910-08-21_17:14:30_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e176_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e176_focal_depth,
+        earthquake_model:e176_magnitude,
+        earthquake_model:e176_reliability .
+
+earthquake_model:e177 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #177 (1911-03-07)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unknown moderate earthquake shock that feasibly occurred in the area of Rethymnon. Vlastos (unpublished, p. 396) reported that,
+Κατά το 1911 Φεβρουαρίου 22 προς την 23 ώρα 2 και ¼ μετά το μεσονύκτιον. Σελήνη 7-8 ημερών. Τρίτη προς Τετάρτη της εβδομάδος, ησθάνθημεν σεισμόν με ισχυράν δόνησιν.
+That is
+On 22 to 23 February 1911, approximately 2¼ hours after midnight, with Moon of 7–8 days, Tuesday to Wednesday, we felt a strong earthquake shock.
+Earthquake parameters: A shallow source near Rethymnon was assumed, with intensity not exceeding V."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1911-03-07_00:15_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e177_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e177_focal_depth,
+        earthquake_model:e177_intensity,
+        earthquake_model:e177_magnitude,
+        earthquake_model:e177_reliability .
+
+earthquake_model:e178 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #178 (1911-03-12)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unknown series of earthquake shocks that likely occurred in the area of Rethymnon. Vlastos (unpublished, p. 397) recounted,
+Την 27 προς την 28 Φεβρουαρίου 1911, και ώρα 1¼ μετά το μεσονύκτιον.
+Σελήνη 13 ημερών, ο καιρός ψυχρός, με αστραπάς και βροντάς, και βροχή ολονύκτιος. Συνέβη και σεισμός με ελαφράν δόνησιν. Τρίτη προς Τετάρτην της εβδομάδος, ησθάνθημεν σεισμόν, με ισχυράν δόνησιν. Και την 28 Φεβρουαρίου προς την 1 Μαρτίου 1911, και ώρα ¾ μετά το μεσονύκτιον (ήτοι 1 παρά τέταρτον μετά το μεσονύκτιον), Σελήνη 14 ημερών, συνέβη νέος σεισμός με δόνησιν ισχυράν και βοήν ως ανεμοστρόβιλον πλην μικράς διαρκείας.
+Earthquake parameters: I adopted a shallow earthquake source close to Rethymnon and a possible link with the Spili fault. Intensity of no more than IV was assigned in Rethymnon."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1911-03-12_22:45_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e178_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e178_focal_depth,
+        earthquake_model:e178_intensity,
+        earthquake_model:e178_magnitude,
+        earthquake_model:e178_phenomenon,
+        earthquake_model:e178_reliability .
+
+earthquake_model:e179 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #179 (1911-04-04)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was a large intermediate-depth earthquake that generated in the area of the volcanic island of Thera (Santorini). The earthquake will be analysed elsewhere. Here I quoted the report of Vlastos (unpublished, p. 398) as regards the impact of the earthquake on the island of Crete:
+Καί την 22 Μαρτίου 1911 ώρα 5 και 10’, μ.μ. σελήνη 6 ημερών έτερος σεισμός ισχυρός διαρκείας 10” περίπου δευτερολέπτων μας εκλόνησεν εν Χανίοις, ενώ η «Νέα Εφημερίς» Ηρακλείου (της 17 Απριλίου ε.ε. αριθ. 229) περιγράφει τον σεισμόν τούτο ως εξής: «Σεισμική δόνησις εν Χανίοις. Περί την 5 1/2 ώραν μ.μ. της παρελθούσης Τρίτης, εγένετο εν Χανίοις αισθητός ισχυρός σεισμού δόνησις εκ Δ προς Α μεγάλης διαρκείας. Ευτυχώς, ουδέν δυστύχημα συνέβη». Earthquake parameters: Magnitude and focal depth were adopted from Papazachos and Papazachou (2003). Additional reading: AOA (1912), Platakis (1950)."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1911-04-04_00:15_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Thera_island ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e179_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e179_focal_depth,
+        earthquake_model:e179_intensity_chania,
+        earthquake_model:e179_intensity_rethymnon,
+        earthquake_model:e179_intensity_thera,
+        earthquake_model:e179_magnitude,
+        earthquake_model:e179_reliability .
+
+earthquake_model:e181 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #181 (1911-05-07)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unknown earthquake shock that occurred in Rethymnon. Vlastos (unpublished, p.400) reported that,
+Την 25 Απριλίου 1911 περί την 11 ώρα μ.μ. της νυκτός. Σελήνη 10 ημερών, ησθάνθησαν εν Ηρακλείω μίαν σεισμού δόνησιν ελαφράν, και εν Ρεθύμνη έγινε την αυτήν στιγμήν αισθητός. Ενώ και κατά την 9 ώρα της νυκτός την αυτήν ημερομηνίαν είχομεν αισθανθεί όμοιον σεισμικόν κλονισμόν, και κατά περιόδους ωρών τινών ησθανόμεθα σεισμικάς δονήσεις κατά το μάλλον ή ήττον αισθητούς εν Ρεθύμνη και Ηρακλείω καταφοβίζοντας τους κατοίκους φοβισμένους μη προηγουμένην επικείμενην καταστροφικήν μεγάλον σεισμόν («Νέα Εφημερίς» Ηρακλείου της 30 Απριλίου 1911, αριθ. 4, σελ. 1, στηλ. 1).
+that is
+On 25 April 1911, around 11 pm, with a Moon phase of 10 days, a slight earthquake shock was felt in Heraklion; it was also felt in Rethymnon around 9 pm, and at intervals similar shocks were felt in both cities, alarming the inhabitants with the fear of an imminent large disaster.
+Earthquake parameters: I derived the same earthquake focus as that of 24 April 1911 (see entry [180])."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1911-05-07_21:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e181_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e181_focal_depth,
+        earthquake_model:e181_intensity_Heraklion,
+        earthquake_model:e181_intensity_Rethymnon,
+        earthquake_model:e181_magnitude,
+        earthquake_model:e181_reliability .
+
+earthquake_model:e182 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #182 (1911-07-29)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unknown small to moderate earthquake shock that occurred in Rethymnon. Vlastos (unpublished, p.401) reported that,
+Κατά την 12 Ιουλίου 1911 ώρα 2 και ¼ μ.μ. ησθάνθημεν εν Ρεθύμνη σεισμόν με δύο κλονισμούς. Από της 12-17 Ιουλίου συνέβησαν σεισμικαί δονήσεις ολίγον αισθηταί εις τους πολλούς. Και την 17 Ιουλίου 1911 ώρα 6 π.μ. της πρωίας σεισμός με δύο δονήσεις εν Ρεθύμνη.
+that is
+On 12 July 1911, at about 2¼ pm, an earthquake with two shocks was felt in Rethymnon. Between 12 and 17 July, slight earthquake shocks were felt by many, and on 17 July 1911, at about 6 am, two shocks occurred in Rethymnon.
+Earthquake parameters: I applied the same earthquake focus as that of 24 April 1911 (see entry [180])."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1911-07-29_04:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e182_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e182_focal_depth,
+        earthquake_model:e182_intensity,
+        earthquake_model:e182_magnitude,
+        earthquake_model:e182_reliability .
+
+earthquake_model:e183 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #183 (1911-10-26)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This is an unknown earthquake shock that occurred in Rethymnon. Vlastos (unpublished, p.401) reported that,
+Και την 14 προς την 15 Οκτωβρίου 1911 ημέρα Ε προς την 6 ώρα 11 της νυκτός, σελήνη 5-6. Ησθάνθη η Κρήτη σεισμόν εκ τριών κλονισμών ελαφρών. Κατ’ αυτάς ημέρας συνέβησαν σεισμοί ισχυροί και εις την Θεσσαλίαν, ιδίως εν Βόλω και των πέριξ αυτού χωρίων εκρημνίσθησαν πολλαί οικίαι (Βλ. σελ. 509).
+that is
+And on 14 to 15 October 1911, at about 11 pm, with Moon phase 5–6, three earthquake shocks were felt in Crete. At the same time, strong earthquakes occurred in Thessalia (especially in Volos and its surrounding villages, with many houses demolished).
+Earthquake parameters: I suggested that the earthquake was felt in Rethymnon and possibly elsewhere in Crete. A shallow source close to Rethymnon was assumed. Note: the Thessalia event in central Greece occurred on 22 October 1911 (NS)."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1911-10-26_21:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e183_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e183_focal_depth,
+        earthquake_model:e183_intensity,
+        earthquake_model:e183_magnitude,
+        earthquake_model:e183_reliability .
+
+earthquake_model:e184 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #184 (1912-03-06)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unknown strong earthquake shock that occurred in Rethymnon. Vlastos (unpublished, p.402) reported that,
+Κατά το έτος 1912 Φεβρουαρίου 23 προς την 24 ώραν 1 και τέταρτον μετά το μεσονύκτιον, ημέρα Πέμπτη προς την Παρασκευήν. Σελήνη 19 προς 20. Έπνεαν Νότιοι άνεμοι σφοδροί, συνέβη σεισμός αρκετής διαρκείας, αλλ’ ήρεμος μ’ ελαφράς δονήσεις, όπως όταν ησθάνθημεν εν Ρεθύμνη. Η δε «Νέα Εφημερίς» Ηρακλείου (της 26 Φεβρουαρίου 1912, σελ. 3, στηλ. 3) τον περιγράφει ως εξής: «Την πρωίαν της 24 Φεβρουαρίου 1912 περί ώρα 1 και 10΄ π.μ. δύο ισχυραί σεισμικαί δονήσεις εκλόνησαν το έδαφος χωρίς ευτυχώς να προκαλέσωσι δυστυχήματα».
+that is
+And on 23 to 24 February 1912, at about 1:15 am after midnight (Thursday to Friday), with Moon phase 19–20, strong south winds were blowing and an earthquake of considerable duration occurred in Rethymnon. The “Nea Efimeris” (26 February 1912, p.3, col.3) describes that in Heraklion: “The morning of 24 February 1912, at about 1:10 am, two strong shocks shook the ground, fortunately causing no fatalities.”
+Earthquake parameters: From this narration I inferred long-distance effects in Rethymnon, possibly due to an intermediate-depth earthquake with a source closer to Heraklion."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1912-03-06_23:15_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e184_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e184_focal_depth,
+        earthquake_model:e184_intensity_Heraklion,
+        earthquake_model:e184_intensity_Rethymnon,
+        earthquake_model:e184_magnitude,
+        earthquake_model:e184_reliability .
+
+earthquake_model:e185 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #185 (1912-12-08)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unknown strong earthquake shock that occurred in Rethymnon. Vlastos (unpublished, p. 406) reported that,
+Το 1912 Νοεμβρίου 26 ώρα 6 της εσπέρας, Δευτέρα ημέρα της εβδομάδος Σελήνη ημερών 2. Σεισμός με δύο δονήσεις ισχυράς από Β προς Ν προηγήθησαν προ ημερών βροχαί, καιρός χιονώδης, και θαλασσοταραχή, τρικυμία. Μετά τον σεισμό δε τούτον κατέπεσεν η τρικυμία η θάλασσα έγινε γαλήνια... Περί τον σεισμό τούτον έγραψαν εκ Χανίων εις την εν Ηρακλείω εφημερίδα «Παλγγενεσία» της 9 Δεκεμβρίου 1912, αρ. 1, σελ. 3, στηλ. 3, τα εξής «σήμερον 26 Νοεμβρίου ε.ε. περί ώρας 6 1/2 μ.μ. ισχυρά δόνησις σεισμού ετάραξε την πόλιν Χανίων».
+Earthquake parameters: I assigned a shallow source offshore of Chania."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1912-12-08_16:30_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:West_Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e185_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e185_focal_depth,
+        earthquake_model:e185_intensity_Chania,
+        earthquake_model:e185_intensity_Rethymnon,
+        earthquake_model:e185_magnitude,
+        earthquake_model:e185_reliability .
+
+earthquake_model:e186 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #186 (1913-02-02)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an earthquake shock that occurred in Rethymnon. Vlastos (unpublished, p. 407) reported that,
+Κατά την 21 Ιανουαρίου 1913 ημέρα Τετάρτη και ώρα 9 μ.μ. εσημειώθη ελαφρά σεισμού δόνησις, μη προκαλέσασα ζημίαν (εδημοσιεύθη ο σεισμός ούτος και εις την Αθηναϊκήν εφημερίδα «Νέαν Ημέραν» της 30 Ιανουαρίου 1913, σελ. 12, στηλ. 1, ότι συνέβη τη 21 Ιανουαρίου ε.ε. σεισμός εν Κρήτη. Και την 29 Ιανουαρίου 1913 άλλος ελαφρός σεισμός συνέβη εν Κρήτη).
+that is
+On 21 January 1913, Wednesday at hour 9 pm a slight earthquake shock happened which caused no damage (published in the Athenian newspaper 'Nea Imera' on 30 January 1913, p.12, col.1, stating that on 21 January an earthquake occurred in Crete). And on 29 January 1913 another slight shock happened in Crete.
+Earthquake parameters: I assigned a shallow source near Rethymnon."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1913-02-02_19:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e186_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e186_focal_depth,
+        earthquake_model:e186_intensity,
+        earthquake_model:e186_magnitude,
+        earthquake_model:e186_reliability .
+
+earthquake_model:e187 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #187 (1913-02-18)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an earthquake shock that was felt in Rethymnon. Vlastos (unpublished, p. 407) reported that,
+Καί άλλος σεισμός συνέβη κατά την 6 Φεβρουαρίου 1913 εν Κρήτη ώρα 3½ μετά το μεσονύκτιον ισχυρός και μετ' ολίγα λεπτά της ώρας επανελήφθη ισχυρότερος άνευ ζημίας όμως, ημέρα Τετάρτη εβδομάδος.
+that is
+And another strong earthquake happened in Crete on 6 February 1913 at hour 3½ after midnight; and after a few minutes another stronger repeated without damage, Wednesday.
+Earthquake parameters: I assigned the same earthquake source as that of 2 February 1913."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Papadopoulos_Book ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1913-02-18_01:30_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymnon ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e187_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e187_focal_depth,
+        earthquake_model:e187_intensity,
+        earthquake_model:e187_magnitude,
+        earthquake_model:e187_reliability .
+
+earthquake_model:e188 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #188 (1913-03-26)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an unknown earthquake shock that occurred in Rethymnon. Vlastos (unpublished, p. 411) reported that,
+Την 14 προς την 15 Μαρτίου 1913 ημέρα Πέμπτη προς την Παρασκευή ώρα 12 του μεσονυκτίου, Σελήνη 20 προς 21. Ησθάνθημεν εν Ρεθύμνη σεισμόν με ελαφράν δόνησιν. Ενώ η «Παλγγενεσία» εφημερίς Ηρακλείου (της 16 Μαρτίου ε.ε. αρ. 15, σελ. 3, στηλ. 1) τον σεισμόν τούτον τον περιγράφει εις την πόλιν ταύτην ισχυρότερον, ως εξής «Ισχυρά σεισμική δόνησις ησθάνθη ενταύθα (εις Ηράκλειον) την 2 ώρα και 45 λ. μετά το μεσονύκτιον της Πέμπτης προς την Παρασκευή 14 προς την 15 Μαρτίου ε.ε. ευτυχώς άνευ ζημίας. Επίσης ησθάνθη την προηγουμένην εσπέραν ελαφροτέρα τοιαύτη σεισμική δόνησις» (ήτις όμως δεν εγένετο αισθητή εις Ρέθυμνον ουδέ εις Χανία).
+Earthquake parameters: I presumed a shallow earthquake source near Heraklion."""^^xsd:string ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1913-03-26_22:00_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e188_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e188_intensity,
+        earthquake_model:e188_magnitude,
+        earthquake_model:e188_reliability .
+
+earthquake_model:e189 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #189 (1913-06-18)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was an earthquake unknown in the scientific literature. Vlastos (unpublished, p. 411) reported that,
+Και τη 24 Νοεμβρίου 1913 ώρα 8 και ¼ της νυκτός ησθάνθημεν εν Ρεθύμνη σεισμικάς τινάς δονήσεις ηρεμους.
+that is
+And on 24 November 1913, hour 8 and ¼ of the night, we felt in Rethymnon some calm shocks.
+Earthquake parameters: I presumed a shallow earthquake source near Rethymnon."""^^xsd:string ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1913-06-18_01:30_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e189_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e189_intensity,
+        earthquake_model:e189_magnitude,
+        earthquake_model:e189_reliability .
+
+earthquake_model:e190 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #190 (1913-09-30)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was a significant, arguably interplate earthquake that occurred to the south of Crete. No information is available to determine the possible impact of the earthquake.
+Earthquake parameters: Adopted from Kárník (1969).
+Additional reading: Papazachos and Papazachou (2003)."""^^xsd:string ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1913-09-30_07:33:39_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:South_of_Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e190_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e190_magnitude,
+        earthquake_model:e190_reliability .
+
+earthquake_model:e191 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #191 (1922-08-13)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was a very strong earthquake that ruptured the eastern segment between Crete and Rhodes. Slight damage was caused in Zakros and Malia villages of Crete. The earthquake was felt in Heraklion, as well as in the South Aegean islands such as Naxos and Thera. A substantial foreshock occurred on 11 August 1922 with magnitude Mₛ=6.3 and maximum intensity of III at Ierapetra.
+Earthquake parameters: Adopted from Comninakis and Papazachos (1986).
+Additional reading: AOA (1926), Sieberg (1932b)."""^^xsd:string ;
+    cidoc-crm:P70i_is_documented_in earthquake_model:Comninakis_and_Papazachos_1986 ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1922-08-13_00:09:54_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:East_Crete ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e191_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e191_intensity_Malia,
+        earthquake_model:e191_intensity_Rhodes,
+        earthquake_model:e191_magnitude .
+
+earthquake_model:e192 a earthquake_model:EQ1_Earthquake ;
+    rdfs:label "Earthquake #192 (1923-08-01)"^^xsd:string ;
+    cidoc-crm:P3_has_note """This was a very strong earthquake of intermediate-depth (h = 90 km) that was definitively felt in Anoyia, Crete, as well as on the island of Thera; it was still detected, though less so, in several other localities of Crete, such as Ierapetra, Malia, Heraklion and Chania.
+Earthquake parameters: Adopted from Comninakis and Papazachos (1986).
+Additional reading: AOA (1928)."""^^xsd:string ;
+    earthquake_model:PEQ5_has_documented_possible_timespan <https://crm-eq.ics.forth.gr/ontology#1923-08-01_08:16:38_GMT+00> ;
+    earthquake_model:PEQ6_has_documented_possible_place earthquake_model:Rethymno ;
+    earthquake_model:PEQ7_has_documented_possible_epicenter_place earthquake_model:e192_epicenter ;
+    earthquake_model:PEQ8_has_documented_possible_dimension earthquake_model:e192_intensity,
+        earthquake_model:e192_magnitude .
+
+crminf:J13i_was_concluded_by a owl:ObjectProperty ;
+    rdfs:domain crminf:I12_Adopted_Belief ;
+    rdfs:range crminf:I7_Belief_Adoption .
+
+crminf:J14i_has_adopted_interpretation a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E73_Information_Object ;
+    rdfs:range crminf:I12_Adopted_Belief .
+
+crminf:J1i_was_premise_of a owl:ObjectProperty ;
+    rdfs:domain crminf:I2_Belief ;
+    rdfs:range crmsci:S5_Inference_Making .
+
+crminf:J20i_has_provenance_claim a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E70_Thing ;
+    rdfs:range crminf:I10_Provenance_Statement .
+
+crminf:J2i_was_concluded_by a owl:ObjectProperty ;
+    rdfs:domain crminf:I2_Belief ;
+    rdfs:range crminf:I1_Argumentation .
+
+crminf:J4i_is_subject_of a owl:ObjectProperty ;
+    rdfs:domain crminf:I4_Proposition_Set ;
+    rdfs:range crminf:I2_Belief .
+
+crminf:J7i_is_evidence_for a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E73_Information_Object ;
+    rdfs:range crminf:I7_Belief_Adoption .
+
+crmsci:O12_has_dimension a owl:ObjectProperty .
+
+crmsci:O12i_is_dimension_of a owl:ObjectProperty .
+
+<https://crm-eq.ics.forth.gr/ontology#1907-08-09_13:05_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1907"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1907-10-31_19:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1907"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1907-12-06_00:15_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1907"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1908-05-17_12:30:42_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1908"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1909-07-05_01:35.6_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1909"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1909-07-15_00:35_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1909"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1909-12-22_18:20_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1909"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1910-02-18_05:09:18_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1910"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1910-02-21_22:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1910"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1910-06-02_04:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1910"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1910-06-29_05:30_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1910"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1910-08-21_17:14:30_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1910"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1911-03-07_00:15_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1911"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1911-03-12_22:45_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1911"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1911-04-04_00:15_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1911"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1911-04-24_03:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1911"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1911-05-07_21:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1911"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1911-07-29_04:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1911"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1911-10-26_21:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1911"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1912-03-06_23:15_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1912"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1912-12-08_16:30_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1912"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1913-02-02_19:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1913"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1913-02-18_01:30_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1913"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1913-03-26_22:00_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1913"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1913-06-18_01:30_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1913"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1913-09-30_07:33:39_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1913"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1922-08-13_00:09:54_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1922"^^xsd:int .
+
+<https://crm-eq.ics.forth.gr/ontology#1923-08-01_08:16:38_GMT+00> a cidoc-crm:E52_Time-Span ;
+    cidoc-crm:P82_at_some_time_within "1923"^^xsd:int .
+
+earthquake_model:Comninakis_and_Papazachos_1986 a cidoc-crm:E31_Document ;
+    rdfs:label "Comninakis_and_Papazachos_1986"^^xsd:string .
+
+earthquake_model:East_Crete a cidoc-crm:E53_Place ;
+    rdfs:label "East_Crete"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete .
+
+earthquake_model:PEQ2i__of_whom_equality_is_checked_in a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E1_CRM_Entity ;
+    rdfs:range earthquake_model:EQ2_Comparison_Evaluation .
+
+earthquake_model:PEQ3i_to_whom_equality_is_checked_in a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E1_CRM_Entity ;
+    rdfs:range earthquake_model:EQ2_Comparison_Evaluation .
+
+earthquake_model:PEQ5i_is_documented_possible_timespan_of a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E52_Time-Span ;
+    rdfs:range earthquake_model:EQ1_Earthquake ;
+    rdfs:subPropertyOf cidoc-crm:P4i_is_time-span_of .
+
+earthquake_model:PEQ6i_is_documented_possible_place_of a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E53_Place ;
+    rdfs:range earthquake_model:EQ1_Earthquake ;
+    rdfs:subPropertyOf cidoc-crm:P7i_witnessed .
+
+earthquake_model:PEQ7i_is__documented_possible_epicenter_place_of a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E53_Place ;
+    rdfs:range earthquake_model:EQ1_Earthquake ;
+    rdfs:subPropertyOf cidoc-crm:P7i_witnessed .
+
+earthquake_model:PEQ8i_is_documented_possible_dimension__of a owl:ObjectProperty ;
+    rdfs:domain cidoc-crm:E54_Dimension ;
+    rdfs:range earthquake_model:EQ1_Earthquake ;
+    rdfs:subPropertyOf crmsci:O12i_is_dimension_of .
+
+earthquake_model:Rethymno a cidoc-crm:E53_Place ;
+    rdfs:label "Rethymno"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete .
+
+earthquake_model:South_of_Crete a cidoc-crm:E53_Place ;
+    rdfs:label "South_of_Crete"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete .
+
+earthquake_model:Thera_island a cidoc-crm:E53_Place ;
+    rdfs:label "Thera_island"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete .
+
+earthquake_model:West_Crete a cidoc-crm:E53_Place ;
+    rdfs:label "West_Crete"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete .
+
+earthquake_model:e1180_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e1180_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e1180_epicenter_coords .
+
+earthquake_model:e1180_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e1180_epicenter_coords_lat,
+        earthquake_model:e1180_epicenter_coords_lon .
+
+earthquake_model:e1180_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.54e+01 .
+
+earthquake_model:e1180_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.48e+01 .
+
+earthquake_model:e1180_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e1180_intensity_heraklion a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Intensity in Heraklion"^^xsd:string ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e1180_intensity_rethymnon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Intensity in Rethymnon"^^xsd:string ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e1180_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.7e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e1180_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e165_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e165_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e165_epicenter_coords .
+
+earthquake_model:e165_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e165_epicenter_coords_lat,
+        earthquake_model:e165_epicenter_coords_lon .
+
+earthquake_model:e165_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.56e+01 .
+
+earthquake_model:e165_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.46e+01 .
+
+earthquake_model:e165_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e165_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 2e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 3e+00 .
+
+earthquake_model:e165_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.6e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string ;
+    earthquake_model:PEQ9_has_documented_uncertainty_factor "Possible"^^xsd:string .
+
+earthquake_model:e165_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e166_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e166_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e166_epicenter_coords .
+
+earthquake_model:e166_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e166_epicenter_coords_lat,
+        earthquake_model:e166_epicenter_coords_lon .
+
+earthquake_model:e166_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.56e+01 .
+
+earthquake_model:e166_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.46e+01 .
+
+earthquake_model:e166_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e166_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 2e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 3e+00 .
+
+earthquake_model:e166_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.6e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string ;
+    earthquake_model:PEQ9_has_documented_uncertainty_factor "Possible"^^xsd:string .
+
+earthquake_model:e166_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e167_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e167_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e167_epicenter_coords .
+
+earthquake_model:e167_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e167_epicenter_coords_lat,
+        earthquake_model:e167_epicenter_coords_lon .
+
+earthquake_model:e167_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.56e+01 .
+
+earthquake_model:e167_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.46e+01 .
+
+earthquake_model:e167_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e167_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 2e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 3e+00 .
+
+earthquake_model:e167_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.8e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e167_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e168_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e168_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e168_epicenter_coords .
+
+earthquake_model:e168_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e168_epicenter_coords_lat,
+        earthquake_model:e168_epicenter_coords_lon .
+
+earthquake_model:e168_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.6e+01 .
+
+earthquake_model:e168_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.5e+01 .
+
+earthquake_model:e168_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "intermediate-depth (h~80 km)"^^xsd:string .
+
+earthquake_model:e168_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Chania, Heraklion"^^xsd:string ;
+    cidoc-crm:P90a_has_lower_value_limit 5e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 6e+00 .
+
+earthquake_model:e168_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 6.2e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e168_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e169_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e169_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e169_epicenter_coords .
+
+earthquake_model:e169_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e169_epicenter_coords_lat,
+        earthquake_model:e169_epicenter_coords_lon .
+
+earthquake_model:e169_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.56e+01 .
+
+earthquake_model:e169_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.46e+01 .
+
+earthquake_model:e169_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e169_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Rethymnon"^^xsd:string ;
+    cidoc-crm:P90a_has_lower_value_limit 2e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 3e+00 .
+
+earthquake_model:e169_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.9e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e169_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e170_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e170_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e170_epicenter_coords .
+
+earthquake_model:e170_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e170_epicenter_coords_lat,
+        earthquake_model:e170_epicenter_coords_lon .
+
+earthquake_model:e170_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.8e+01 .
+
+earthquake_model:e170_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.15e+01 .
+
+earthquake_model:e170_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e170_intensity_Chavari a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Chavari"^^xsd:string ;
+    cidoc-crm:P90a_has_lower_value_limit 9e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 1e+01 .
+
+earthquake_model:e170_intensity_Rethymnon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e170_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5.8e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e170_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e171_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e171_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e171_epicenter_coords .
+
+earthquake_model:e171_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e171_epicenter_coords_lat,
+        earthquake_model:e171_epicenter_coords_lon .
+
+earthquake_model:e171_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.57e+01 .
+
+earthquake_model:e171_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.47e+01 .
+
+earthquake_model:e171_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e171_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90_has_value 5e+00 .
+
+earthquake_model:e171_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e171_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e172_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e172_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e172_epicenter_coords .
+
+earthquake_model:e172_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e172_epicenter_coords_lat,
+        earthquake_model:e172_epicenter_coords_lon .
+
+earthquake_model:e172_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.5e+01 .
+
+earthquake_model:e172_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.4e+01 .
+
+earthquake_model:e172_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "interplate"^^xsd:string .
+
+earthquake_model:e172_intensity_Chania a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90_has_value 8e+00 .
+
+earthquake_model:e172_intensity_Rethymnon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 7e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 8e+00 .
+
+earthquake_model:e172_lightning a cidoc-crm:E7_Activity ;
+    rdfs:label "e172_lightning"^^xsd:string .
+
+earthquake_model:e172_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 6.5e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e172_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e173_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e173_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e173_epicenter_coords .
+
+earthquake_model:e173_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e173_epicenter_coords_lat,
+        earthquake_model:e173_epicenter_coords_lon .
+
+earthquake_model:e173_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.5e+01 .
+
+earthquake_model:e173_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.4e+01 .
+
+earthquake_model:e173_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e173_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 2e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 3e+00 .
+
+earthquake_model:e173_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.9e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e173_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e174_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e174_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e174_epicenter_coords .
+
+earthquake_model:e174_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e174_epicenter_coords_lat,
+        earthquake_model:e174_epicenter_coords_lon .
+
+earthquake_model:e174_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.5e+01 .
+
+earthquake_model:e174_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.4e+01 .
+
+earthquake_model:e174_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e174_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 2e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 3e+00 .
+
+earthquake_model:e174_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.8e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e174_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e175_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e175_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e175_epicenter_coords .
+
+earthquake_model:e175_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e175_epicenter_coords_lat,
+        earthquake_model:e175_epicenter_coords_lon .
+
+earthquake_model:e175_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.5e+01 .
+
+earthquake_model:e175_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.4e+01 .
+
+earthquake_model:e175_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e175_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 2e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 3e+00 .
+
+earthquake_model:e175_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.9e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e175_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e176_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e176_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e176_epicenter_coords .
+
+earthquake_model:e176_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e176_epicenter_coords_lat,
+        earthquake_model:e176_epicenter_coords_lon .
+
+earthquake_model:e176_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.43e+01 .
+
+earthquake_model:e176_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.68e+01 .
+
+earthquake_model:e176_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e176_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 6e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.5"^^xsd:string .
+
+earthquake_model:e176_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e177_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e177_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e177_epicenter_coords .
+
+earthquake_model:e177_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e177_epicenter_coords_lat,
+        earthquake_model:e177_epicenter_coords_lon .
+
+earthquake_model:e177_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.54e+01 .
+
+earthquake_model:e177_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.46e+01 .
+
+earthquake_model:e177_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e177_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 4e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 5e+00 .
+
+earthquake_model:e177_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5.1e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e177_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e178_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e178_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e178_epicenter_coords .
+
+earthquake_model:e178_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e178_epicenter_coords_lat,
+        earthquake_model:e178_epicenter_coords_lon .
+
+earthquake_model:e178_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.54e+01 .
+
+earthquake_model:e178_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.45e+01 .
+
+earthquake_model:e178_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e178_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Intensity recorded in Rethymnon"^^xsd:string ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e178_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5.1e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e178_phenomenon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:phenomenon ;
+    cidoc-crm:P90_has_value "roar"^^xsd:string .
+
+earthquake_model:e178_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e179_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e179_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e179_epicenter_coords .
+
+earthquake_model:e179_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e179_epicenter_coords_lat,
+        earthquake_model:e179_epicenter_coords_lon .
+
+earthquake_model:e179_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.62e+01 .
+
+earthquake_model:e179_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.56e+01 .
+
+earthquake_model:e179_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "intermediate-depth (h=140)"^^xsd:string .
+
+earthquake_model:e179_intensity_chania a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Intensity in Chania"^^xsd:string ;
+    cidoc-crm:P90a_has_lower_value_limit 5e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 6e+00 .
+
+earthquake_model:e179_intensity_rethymnon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Intensity in Rethymnon"^^xsd:string ;
+    cidoc-crm:P90a_has_lower_value_limit 6e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 7e+00 .
+
+earthquake_model:e179_intensity_thera a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P3_has_note "Intensity in Thera"^^xsd:string ;
+    cidoc-crm:P90_has_value "IV"^^xsd:string .
+
+earthquake_model:e179_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 7.1e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.5"^^xsd:string .
+
+earthquake_model:e179_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e181_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e181_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e181_epicenter_coords .
+
+earthquake_model:e181_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e181_epicenter_coords_lat,
+        earthquake_model:e181_epicenter_coords_lon .
+
+earthquake_model:e181_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.54e+01 .
+
+earthquake_model:e181_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.48e+01 .
+
+earthquake_model:e181_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e181_intensity_Heraklion a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e181_intensity_Rethymnon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 5e+00 .
+
+earthquake_model:e181_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.7e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e181_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e182_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e182_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e182_epicenter_coords .
+
+earthquake_model:e182_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e182_epicenter_coords_lat,
+        earthquake_model:e182_epicenter_coords_lon .
+
+earthquake_model:e182_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.54e+01 .
+
+earthquake_model:e182_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.48e+01 .
+
+earthquake_model:e182_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e182_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e182_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.7e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e182_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e183_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e183_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e183_epicenter_coords .
+
+earthquake_model:e183_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e183_epicenter_coords_lat,
+        earthquake_model:e183_epicenter_coords_lon .
+
+earthquake_model:e183_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.54e+01 .
+
+earthquake_model:e183_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.48e+01 .
+
+earthquake_model:e183_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e183_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 2e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 3e+00 .
+
+earthquake_model:e183_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.6e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e183_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e184_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e184_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e184_epicenter_coords .
+
+earthquake_model:e184_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e184_epicenter_coords_lat,
+        earthquake_model:e184_epicenter_coords_lon .
+
+earthquake_model:e184_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.6e+01 .
+
+earthquake_model:e184_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.55e+01 .
+
+earthquake_model:e184_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "intermediate-depth"^^xsd:string .
+
+earthquake_model:e184_intensity_Heraklion a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 4e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 5e+00 .
+
+earthquake_model:e184_intensity_Rethymnon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e184_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5.4e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e184_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 3e+00 .
+
+earthquake_model:e185_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e185_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e185_epicenter_coords .
+
+earthquake_model:e185_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e185_epicenter_coords_lat,
+        earthquake_model:e185_epicenter_coords_lon .
+
+earthquake_model:e185_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.54e+01 .
+
+earthquake_model:e185_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.44e+01 .
+
+earthquake_model:e185_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e185_intensity_Chania a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 4e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 5e+00 .
+
+earthquake_model:e185_intensity_Rethymnon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e185_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5.4e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e185_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e186_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e186_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e186_epicenter_coords .
+
+earthquake_model:e186_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e186_epicenter_coords_lat,
+        earthquake_model:e186_epicenter_coords_lon .
+
+earthquake_model:e186_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.56e+01 .
+
+earthquake_model:e186_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.44e+01 .
+
+earthquake_model:e186_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e186_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e186_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 4.6e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e186_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e187_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e187_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e187_epicenter_coords .
+
+earthquake_model:e187_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e187_epicenter_coords_lat,
+        earthquake_model:e187_epicenter_coords_lon .
+
+earthquake_model:e187_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.56e+01 .
+
+earthquake_model:e187_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.44e+01 .
+
+earthquake_model:e187_focal_depth a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:focal_depth ;
+    cidoc-crm:P90_has_value "shallow"^^xsd:string .
+
+earthquake_model:e187_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 4e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 5e+00 .
+
+earthquake_model:e187_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.3"^^xsd:string .
+
+earthquake_model:e187_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e188_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e188_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e188_epicenter_coords .
+
+earthquake_model:e188_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e188_epicenter_coords_lat,
+        earthquake_model:e188_epicenter_coords_lon .
+
+earthquake_model:e188_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.55e+01 .
+
+earthquake_model:e188_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.49e+01 .
+
+earthquake_model:e188_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e188_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e188_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e189_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e189_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e189_epicenter_coords .
+
+earthquake_model:e189_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e189_epicenter_coords_lat,
+        earthquake_model:e189_epicenter_coords_lon .
+
+earthquake_model:e189_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.56e+01 .
+
+earthquake_model:e189_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.47e+01 .
+
+earthquake_model:e189_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90a_has_lower_value_limit 3e+00 ;
+    cidoc-crm:P90b_has_upper_value_limit 4e+00 .
+
+earthquake_model:e189_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 5e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e189_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e190_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e190_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e190_epicenter_coords .
+
+earthquake_model:e190_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e190_epicenter_coords_lat,
+        earthquake_model:e190_epicenter_coords_lon .
+
+earthquake_model:e190_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.5e+01 .
+
+earthquake_model:e190_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.4e+01 .
+
+earthquake_model:e190_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 6.1e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms ;
+    earthquake_model:PEQ1_has_error_margin "±0.2"^^xsd:string .
+
+earthquake_model:e190_reliability a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:reliability ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e191_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e191_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e191_epicenter_coords .
+
+earthquake_model:e191_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e191_epicenter_coords_lat,
+        earthquake_model:e191_epicenter_coords_lon .
+
+earthquake_model:e191_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.55e+01 .
+
+earthquake_model:e191_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.8e+01 .
+
+earthquake_model:e191_intensity_Malia a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90_has_value 6e+00 .
+
+earthquake_model:e191_intensity_Rhodes a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90_has_value 6e+00 .
+
+earthquake_model:e191_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 6.8e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms .
+
+earthquake_model:e192_epicenter a cidoc-crm:E53_Place ;
+    rdfs:label "e192_epicenter"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete ;
+    crmsci:O12_has_dimension earthquake_model:e192_epicenter_coords .
+
+earthquake_model:e192_epicenter_coords a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P89_falls_within earthquake_model:e192_epicenter_coords_lat,
+        earthquake_model:e192_epicenter_coords_lon .
+
+earthquake_model:e192_epicenter_coords_lat a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:latitude ;
+    cidoc-crm:P90_has_value 3.5e+01 .
+
+earthquake_model:e192_epicenter_coords_lon a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:longitude ;
+    cidoc-crm:P90_has_value 2.5e+01 .
+
+earthquake_model:e192_intensity a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:intensity ;
+    cidoc-crm:P90_has_value 4e+00 .
+
+earthquake_model:e192_magnitude a cidoc-crm:E54_Dimension ;
+    cidoc-crm:P2_has_type earthquake_model:magnitude ;
+    cidoc-crm:P90_has_value 6.8e+00 ;
+    cidoc-crm:P91_has_unit earthquake_model:Ms .
+
+earthquake_model:phenomenon a cidoc-crm:E55_Type ;
+    rdfs:label "phenomenon"^^xsd:string .
+
+crminf:I10_Provenance_Statement a owl:Class ;
+    rdfs:subClassOf crminf:I4_Proposition_Set .
+
+crminf:I1_Argumentation a owl:Class ;
+    rdfs:subClassOf cidoc-crm:E7_Activity .
+
+crminf:I4_Proposition_Set a owl:Class ;
+    rdfs:subClassOf cidoc-crm:E73_Information_Object .
+
+crmsci:S5_Inference_Making a owl:Class .
+
+crminf:I12_Adopted_Belief a owl:Class ;
+    rdfs:subClassOf crminf:I2_Belief .
+
+crminf:I7_Belief_Adoption a owl:Class ;
+    rdfs:subClassOf crminf:I1_Argumentation .
+
+earthquake_model:EQ2_Comparison_Evaluation a owl:Class ;
+    rdfs:subClassOf crmsci:S5_Inference_Making .
+
+crminf:I2_Belief a owl:Class ;
+    rdfs:subClassOf cidoc-crm:E2_Temporal_Entity .
+
+earthquake_model:Rethymnon a cidoc-crm:E53_Place ;
+    rdfs:label "Rethymnon"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete .
+
+earthquake_model:Papadopoulos_Book a cidoc-crm:E31_Document ;
+    rdfs:label "Papadopoulos_Book"^^xsd:string .
+
+earthquake_model:focal_depth a cidoc-crm:E55_Type ;
+    rdfs:label "focal_depth"^^xsd:string .
+
+earthquake_model:reliability a cidoc-crm:E55_Type ;
+    rdfs:label "reliability"^^xsd:string .
+
+earthquake_model:Ms a cidoc-crm:E58_Measurement_Unit ;
+    rdfs:label "Ms"^^xsd:string .
+
+earthquake_model:latitude a cidoc-crm:E55_Type ;
+    rdfs:label "latitude"^^xsd:string .
+
+earthquake_model:longitude a cidoc-crm:E55_Type ;
+    rdfs:label "longitude"^^xsd:string .
+
+earthquake_model:magnitude a cidoc-crm:E55_Type ;
+    rdfs:label "magnitude"^^xsd:string .
+
+earthquake_model:intensity a cidoc-crm:E55_Type ;
+    rdfs:label "intensity"^^xsd:string .
+
+earthquake_model:EQ1_Earthquake a owl:Class ;
+    rdfs:subClassOf cidoc-crm:E5_Event .
+
+earthquake_model:Crete a cidoc-crm:E53_Place ;
+    rdfs:label "Crete"^^xsd:string ;
+    cidoc-crm:P89_falls_within earthquake_model:Crete .
+
