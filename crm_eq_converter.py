@@ -13,7 +13,7 @@ Usage:
     3. Generate RDF triples following CRM-EQ patterns
     4. Serialize to TTL format
 
-Author: [Your Name]
+Author: Emmanouil Patronakis
 License: MIT
 """
 
