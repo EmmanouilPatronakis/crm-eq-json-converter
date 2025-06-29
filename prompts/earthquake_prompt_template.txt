@@ -1,0 +1,21 @@
+<task_description>
+Convert the provided {DOMAIN} data to JSON format following the exact schema specification below. Extract information accurately without adding, interpreting, or inferring additional details not explicitly present in the source text.
+</task_description>
+
+<schema_specification>
+{EXAMPLE_JSON_SCHEMA}
+</schema_specification>
+
+<conversion_constraints>
+- Follow the schema structure exactly
+- Use empty strings for missing information
+- Maintain original data precision and format
+- Do not add explanatory text or comments
+- Output only valid JSON
+</conversion_constraints>
+
+<source_data>
+{SOURCE_TEXT_DATA}
+</source_data>
+
+Output the converted JSON:

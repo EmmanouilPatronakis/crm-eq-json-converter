@@ -1,0 +1,66 @@
+<task_description>
+Convert the provided earthquake data to JSON format following the exact schema specification below. Extract information accurately without adding, interpreting, or inferring additional details not explicitly present in the source text.
+</task_description>
+
+<schema_specification>
+{
+  "earthquakeId": "e193",
+  "dateTime": "1926-06-26T19:46:34",
+  "referenceDoc": "https://crm-eq.ics.forth.gr/ontology#Platakis_Book",
+  "carriedOutBy": "https://crm-eq.ics.forth.gr/ontology#Asteroskopeio_Athinon",
+  "epicenterPlace": "https://crm-eq.ics.forth.gr/ontology#Rhodes_Island",
+  "coordinates": {
+    "latitude": "36.50",
+    "longitude": "26.86"
+  },
+  "depth": {
+    "value": "115",
+    "unit": "https://crm-eq.ics.forth.gr/ontology#kilometers"
+  },
+  "magnitude": [
+    {
+      "value": "7.4",
+      "scale": "https://crm-eq.ics.forth.gr/ontology#ms"
+    }
+  ],
+  "otherReferences": [
+    "https://crm-eq.ics.forth.gr/ontology#Critikos_1928"
+  ],
+  "associatedPhenomena": [
+    "https://crm-eq.ics.forth.gr/ontology#hydrological_changes"
+  ],
+  "locations": [
+    {
+      "place": "https://crm-eq.ics.forth.gr/ontology#Archagelos_Rhodes",
+      "intensity": "IX",
+      "intensityScale": "https://crm-eq.ics.forth.gr/ontology#msk",
+      "duration": "",
+      "durationIsRanged": false,
+      "durationLower": "",
+      "durationUpper": "",
+      "direction": "",
+      "waveType": false
+    }
+  ]
+}
+</schema_specification>
+
+<conversion_constraints>
+- Follow the schema structure exactly
+- Use empty strings for missing information
+- Maintain original data precision and format
+- Do not add explanatory text or comments
+- Output only valid JSON
+</conversion_constraints>
+
+<source_data>
+[194] 1930 02 14 18:38:12, Heraklion, Crete, reliability: 4
+epicentral coordinates: 36.5 24.5
+type: intermediate-depth (h=130 km)
+maximum intensity: X (Aetania), magnitude: Ms=6.7
+Description: This was a very strong, intermediate-depth earthquake that occurred offshore of northern Crete and was intensely felt across Crete as well as in the Cyclades island complex. The northeastern and central parts of Crete suffered extensive damage but no fatalities were reported. The villages in the province of Malevision suffered greatly again, as had happened with the 1856 and 1926 earthquakes (see entries [83] and [193]). Namely, the villages of Aetania and Vathia were decimated, while Episcopi and Gouves were heavily injured (AOA, 1930; Sieberg 1932b; Montadon, 1953). Considerable damage was also observed in Tylissos and along the coastal zone of Heraklion. In the city of Heraklion fissures in walls and dismantling of chimneys were reported. In the western part of Crete, crevices in the walls of houses and of the fortress were spotted in Rethymnon, while in Chania wall plasters fell, house walls were fractured and one house collapsed. In Chania, as well as in Argyroupolis in northern Crete, the earthquake was accompanied by a roar. Items exposed in the Archaeological Museum of Heraklion were destroyed again. The earthquake was felt in the south of Peloponnese and slightly so in the north of the peninsula, as well as in Samos, Athens, Lefkada, Preveza, Ioannina, Kerkyra, Metsovo. On Thera Island, many houses and shop buildings fractured. The shock was reported from as far as Egypt. Andrikakis (2008) published a detailed description of the impact of the earthquake in Crete based on press reports and eyewitness accounts.
+Earthquake parameters: Adopted from Papazachos and Papazachou (2003).
+Additional reading: Platakis (1950).
+</source_data>
+
+Output the converted JSON:
